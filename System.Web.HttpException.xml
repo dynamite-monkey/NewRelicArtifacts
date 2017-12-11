@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpException in this file
+  -->
+
+    <!-- HttpException -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpException">
+      <match assemblyName="System.Web" className="System.Web.HttpException">
+        <exactMethodMatcher methodName="CreateFromLastError" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetBaseException" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetHtmlErrorMessage" />
+        <exactMethodMatcher methodName="GetHttpCode" />
+        <exactMethodMatcher methodName="GetObjectData" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

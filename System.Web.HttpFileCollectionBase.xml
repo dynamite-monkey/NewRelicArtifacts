@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpFileCollectionBase in this file
+  -->
+
+    <!-- HttpFileCollectionBase -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpFileCollectionBase">
+      <match assemblyName="System.Web" className="System.Web.HttpFileCollectionBase">
+        <exactMethodMatcher methodName="BaseAdd" />
+        <exactMethodMatcher methodName="BaseClear" />
+        <exactMethodMatcher methodName="BaseGet" />
+        <exactMethodMatcher methodName="BaseGetAllKeys" />
+        <exactMethodMatcher methodName="BaseGetAllValues" />
+        <exactMethodMatcher methodName="BaseGetKey" />
+        <exactMethodMatcher methodName="BaseHasKeys" />
+        <exactMethodMatcher methodName="BaseRemove" />
+        <exactMethodMatcher methodName="BaseRemoveAt" />
+        <exactMethodMatcher methodName="BaseSet" />
+        <exactMethodMatcher methodName="CopyTo" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="Get" />
+        <exactMethodMatcher methodName="GetEnumerator" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetKey" />
+        <exactMethodMatcher methodName="GetMultiple" />
+        <exactMethodMatcher methodName="GetObjectData" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="OnDeserialization" />
+        <exactMethodMatcher methodName="ToString" />
+
+        <!-- Overloaded methods -->
+        <exactMethodMatcher methodName="AsParallel" />
+        <exactMethodMatcher methodName="AsQueryable" />
+        <exactMethodMatcher methodName="Cast" />
+        <exactMethodMatcher methodName="OfType" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

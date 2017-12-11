@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpFileCollection in this file
+  -->
+
+    <!-- HttpFileCollection -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpFileCollection">
+      <match assemblyName="System.Web" className="System.Web.HttpFileCollection">
+        <exactMethodMatcher methodName="CopyTo" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Get" />
+        <exactMethodMatcher methodName="GetEnumerator" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetKey" />
+        <exactMethodMatcher methodName="GetMultiple" />
+        <exactMethodMatcher methodName="GetObjectData" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="OnDeserialization" />
+        <exactMethodMatcher methodName="ToString" />
+        
+        <!-- Overloaded methods -->
+        <exactMethodMatcher methodName="AsParallel" />
+        <exactMethodMatcher methodName="AsQueryable" />
+        <exactMethodMatcher methodName="Cast" />
+        <exactMethodMatcher methodName="OfType" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

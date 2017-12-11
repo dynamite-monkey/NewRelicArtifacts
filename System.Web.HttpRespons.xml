@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpResponse in this file
+  -->
+
+    <!-- HttpResponse -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpResponse">
+      <match assemblyName="System.Web" className="System.Web.HttpResponse">
+        <exactMethodMatcher methodName="AddCacheDependenc" />
+        <exactMethodMatcher methodName="AddCacheItemDependencies" />
+        <exactMethodMatcher methodName="AddCacheItemDependency" />
+        <exactMethodMatcher methodName="AddFileDependencies" />
+        <exactMethodMatcher methodName="AddFileDependency" />
+        <exactMethodMatcher methodName="AddHeader" />
+        <exactMethodMatcher methodName="AddOnSendingHeaders" />
+        <exactMethodMatcher methodName="AppendCookie" />
+        <exactMethodMatcher methodName="AppendHeader" />
+        <exactMethodMatcher methodName="AppendToLog" />
+        <exactMethodMatcher methodName="ApplyAppPathModifier" />
+        <exactMethodMatcher methodName="BeginFlush" />
+        <exactMethodMatcher methodName="BinaryWrite" />
+        <exactMethodMatcher methodName="Clear" />
+        <exactMethodMatcher methodName="ClearContent" />
+        <exactMethodMatcher methodName="ClearHeaders" />
+        <exactMethodMatcher methodName="Close" />
+        <exactMethodMatcher methodName="DisableKernelCache" />
+        <exactMethodMatcher methodName="DisableUserCache" />
+        <exactMethodMatcher methodName="End" />
+        <exactMethodMatcher methodName="EndFlush" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Flush" />
+        <exactMethodMatcher methodName="FlushAsync" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="Pics" />
+        <exactMethodMatcher methodName="PushPromise" />
+        <exactMethodMatcher methodName="Redirect" />
+        <exactMethodMatcher methodName="RedirectPermanent" />
+        <exactMethodMatcher methodName="RedirectToRoute" />
+        <exactMethodMatcher methodName="RedirectToRoutePermanent" />
+        <exactMethodMatcher methodName="RemoveOutputCacheItem" />
+        <exactMethodMatcher methodName="SetCookie" />
+        <exactMethodMatcher methodName="ToString" />
+        <exactMethodMatcher methodName="TransmitFile" />
+        <exactMethodMatcher methodName="Write" />
+        <exactMethodMatcher methodName="WriteFile" />
+        <exactMethodMatcher methodName="WriteSubstitution" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

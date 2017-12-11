@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpCookie in this file
+  -->
+
+    <!-- HttpCookie -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpCookie">
+      <match assemblyName="System.Web" className="System.Web.HttpCookie">
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="ToString" />
+        <exactMethodMatcher methodName="TryParse" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

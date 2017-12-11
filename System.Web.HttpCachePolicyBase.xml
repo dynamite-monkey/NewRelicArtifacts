@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpCachePolicyBase in this file
+  -->
+
+    <!-- HttpCachePolicyBase -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpCachePolicyBase">
+      <match assemblyName="System.Web" className="System.Web.HttpCachePolicyBase">
+        <exactMethodMatcher methodName="AddValidationCallback" />
+        <exactMethodMatcher methodName="AppendCacheExtension" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="SetAllowResponseInBrowserHistory" />
+        <exactMethodMatcher methodName="SetCacheability" />
+        <exactMethodMatcher methodName="SetETag" />
+        <exactMethodMatcher methodName="SetETagFromFileDependencies" />
+        <exactMethodMatcher methodName="SetExpires" />
+        <exactMethodMatcher methodName="SetLastModified" />
+        <exactMethodMatcher methodName="SetLastModifiedFromFileDependencies" />
+        <exactMethodMatcher methodName="SetMaxAge" />
+        <exactMethodMatcher methodName="SetNoServerCaching" />
+        <exactMethodMatcher methodName="SetNoStore" />
+        <exactMethodMatcher methodName="SetNoTransforms" />
+        <exactMethodMatcher methodName="SetOmitVaryStar" />
+        <exactMethodMatcher methodName="SetProxyMaxAge" />
+        <exactMethodMatcher methodName="SetRevalidation" />
+        <exactMethodMatcher methodName="SetSlidingExpiration" />
+        <exactMethodMatcher methodName="SetValidUntilExpires" />
+        <exactMethodMatcher methodName="SetVaryByCustom" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

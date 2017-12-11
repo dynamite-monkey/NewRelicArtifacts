@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpServerUtility in this file
+  -->
+
+    <!-- HttpServerUtility -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpServerUtility">
+      <match assemblyName="System.Web" className="System.Web.HttpServerUtility">
+        <exactMethodMatcher methodName="ClearError" />
+        <exactMethodMatcher methodName="CreateObject" />
+        <exactMethodMatcher methodName="CreateObjectFromClsid" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Execute" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetLastError" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="HtmlDecode" />
+        <exactMethodMatcher methodName="HtmlEncode" />
+        <exactMethodMatcher methodName="MapPath" />
+        <exactMethodMatcher methodName="ToString" />
+        <exactMethodMatcher methodName="Transfer" />
+        <exactMethodMatcher methodName="TransferRequest" />
+        <exactMethodMatcher methodName="UrlDecode" />
+        <exactMethodMatcher methodName="UrlEncode" />
+        <exactMethodMatcher methodName="UrlPathEncode" />
+        <exactMethodMatcher methodName="UrlTokenDecode" />
+        <exactMethodMatcher methodName="UrlTokenEncode" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

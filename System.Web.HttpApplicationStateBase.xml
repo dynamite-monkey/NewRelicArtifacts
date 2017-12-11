@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpApplicationStateBase in this file
+  -->
+
+    <!-- HttpApplicationStateBase -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpApplicationStateBase">
+      <match assemblyName="System.Web" className="System.Web.HttpApplicationStateBase">
+        <exactMethodMatcher methodName="Add" />
+        <exactMethodMatcher methodName="BaseAdd" />
+        <exactMethodMatcher methodName="BaseClear" />
+        <exactMethodMatcher methodName="BaseGet" />
+        <exactMethodMatcher methodName="BaseGetAllKeys" />
+        <exactMethodMatcher methodName="BaseGetAllValues" />
+        <exactMethodMatcher methodName="BaseGetKey" />
+        <exactMethodMatcher methodName="BaseHasKeys" />
+        <exactMethodMatcher methodName="BaseRemove" />
+        <exactMethodMatcher methodName="BaseRemoveAt" />
+        <exactMethodMatcher methodName="BaseSet" />
+        <exactMethodMatcher methodName="Clear" />
+        <exactMethodMatcher methodName="CopyTo" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="Get" />
+        <exactMethodMatcher methodName="GetEnumerator" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetKey" />
+        <exactMethodMatcher methodName="GetObjectData" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="Lock" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="OnDeserialization" />
+        <exactMethodMatcher methodName="Remove" />
+        <exactMethodMatcher methodName="RemoveAll" />
+        <exactMethodMatcher methodName="RemoveAt" />
+        <exactMethodMatcher methodName="Set" />
+        <exactMethodMatcher methodName="ToString" />
+        <exactMethodMatcher methodName="UnLock" />
+        
+        <!-- Overloaded Methods -->
+        <exactMethodMatcher methodName="AsParallel" />
+        <exactMethodMatcher methodName="AsQueryable" />
+        <exactMethodMatcher methodName="Cast" />
+        <exactMethodMatcher methodName="OfType" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpApplication in this file
+  -->
+
+    <!-- HttpApplication -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpApplication">
+      <match assemblyName="System.Web" className="System.Web.HttpApplication">
+        <exactMethodMatcher methodName="AddOnAcquireRequestStateAsync" />
+        <exactMethodMatcher methodName="AddOnAuthenticateRequestAsync" />
+        <exactMethodMatcher methodName="AddOnAuthorizeRequestAsync" />
+        <exactMethodMatcher methodName="AddOnBeginRequestAsync" />
+        <exactMethodMatcher methodName="AddOnEndRequestAsync" />
+        <exactMethodMatcher methodName="AddOnLogRequestAsync" />
+        <exactMethodMatcher methodName="AddOnMapRequestHandlerAsync" />
+        <exactMethodMatcher methodName="AddOnPostAcquireRequestStateAsync" />
+        <exactMethodMatcher methodName="AddOnPostAuthenticateRequestAsync" />
+        <exactMethodMatcher methodName="AddOnPostAuthorizeRequestAsync" />
+        <exactMethodMatcher methodName="AddOnPostLogRequestAsync" />
+        <exactMethodMatcher methodName="AddOnPostMapRequestHandlerAsync" />
+        <exactMethodMatcher methodName="AddOnPostReleaseRequestStateAsync" />
+        <exactMethodMatcher methodName="AddOnPostRequestHandlerExecuteAsync" />
+        <exactMethodMatcher methodName="AddOnPostResolveRequestCacheAsync" />
+        <exactMethodMatcher methodName="AddOnPostUpdateRequestCacheAsync" />
+        <exactMethodMatcher methodName="AddOnPreRequestHandlerExecuteAsync" />
+        <exactMethodMatcher methodName="AddOnReleaseRequestStateAsync" />
+        <exactMethodMatcher methodName="AddOnResolveRequestCacheAsync" />
+        <exactMethodMatcher methodName="AddOnUpdateRequestCacheAsync" />
+        <exactMethodMatcher methodName="CompleteRequest" />
+        <exactMethodMatcher methodName="Dispose" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetOutputCacheProviderName" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="GetVaryByCustomString" />
+        <exactMethodMatcher methodName="Init" />
+        <exactMethodMatcher methodName="MemberwiseClon" />
+        <exactMethodMatcher methodName="OnExecuteRequestStep" />
+        <exactMethodMatcher methodName="RegisterModule" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

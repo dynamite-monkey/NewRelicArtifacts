@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpCachePolicy in this file
+  -->
+
+    <!-- HttpCachePolicy -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpCachePolicy">
+      <match assemblyName="System.Web" className="System.Web.HttpCachePolicy">
+        <exactMethodMatcher methodName="AddValidationCallback" />
+        <exactMethodMatcher methodName="AppendCacheExtension" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetCacheability" />
+        <exactMethodMatcher methodName="GetCacheExtensions" />
+        <exactMethodMatcher methodName="GetETag" />
+        <exactMethodMatcher methodName="GetETagFromFileDependencies" />
+        <exactMethodMatcher methodName="GetExpires" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetIgnoreRangeRequests" />
+        <exactMethodMatcher methodName="GetLastModifiedFromFileDependencies" />
+        <exactMethodMatcher methodName="GetMaxAge" />
+        <exactMethodMatcher methodName="GetNoServerCaching" />
+        <exactMethodMatcher methodName="GetNoStore" />
+        <exactMethodMatcher methodName="GetNoTransforms" />
+        <exactMethodMatcher methodName="GetOmitVaryStar" />
+        <exactMethodMatcher methodName="GetProxyMaxAge" />
+        <exactMethodMatcher methodName="GetRevalidation" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="GetUtcLastModified" />
+        <exactMethodMatcher methodName="GetVaryByCustom" />
+        <exactMethodMatcher methodName="HasSlidingExpiration" />
+        <exactMethodMatcher methodName="IsModified" />
+        <exactMethodMatcher methodName="IsValidUntilExpires" />
+        <exactMethodMatcher methodName="SetAllowResponseInBrowserHistory" />
+        <exactMethodMatcher methodName="SetCacheability" />
+        <exactMethodMatcher methodName="SetETag" />
+        <exactMethodMatcher methodName="SetETagFromFileDependencies" />
+        <exactMethodMatcher methodName="SetExpires" />
+        <exactMethodMatcher methodName="SetLastModified" />
+        <exactMethodMatcher methodName="SetLastModifiedFromFileDependencies" />
+        <exactMethodMatcher methodName="SetMaxAge" />
+        <exactMethodMatcher methodName="SetNoServerCaching" />
+        <exactMethodMatcher methodName="SetNoStore" />
+        <exactMethodMatcher methodName="SetNoTransforms" />
+        <exactMethodMatcher methodName="SetOmitVaryStar" />
+        <exactMethodMatcher methodName="SetProxyMaxAge" />
+        <exactMethodMatcher methodName="SetRevalidation" />
+        <exactMethodMatcher methodName="SetSlidingExpiration" />
+        <exactMethodMatcher methodName="SetValidUntilExpires" />
+        <exactMethodMatcher methodName="SetVaryByCustom" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

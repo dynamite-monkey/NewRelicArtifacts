@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.EventHandlerTaskAsyncHelper in this file
+  -->
+
+    <!-- EventHandlerTaskAsyncHelper -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="EventHandlerTaskAsyncHelper">
+      <match assemblyName="System.Web" className="System.Web.EventHandlerTaskAsyncHelper">
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

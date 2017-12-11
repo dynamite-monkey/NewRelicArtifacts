@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpContextWrapper in this file
+  -->
+
+    <!-- HttpContextWrapper -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpContextWrapper">
+      <match assemblyName="System.Web" className="System.Web.HttpContextWrapper">
+        <exactMethodMatcher methodName="AcceptWebSocketRequest" />
+        <exactMethodMatcher methodName="AddError" />
+        <exactMethodMatcher methodName="AddOnRequestCompleted" />
+        <exactMethodMatcher methodName="ClearError" />
+        <exactMethodMatcher methodName="DisposeOnPipelineCompleted" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetGlobalResourceObject" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetLocalResourceObject" />
+        <exactMethodMatcher methodName="GetSection" />
+        <exactMethodMatcher methodName="GetService" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="RemapHandler" />
+        <exactMethodMatcher methodName="RewritePath" />
+        <exactMethodMatcher methodName="SetSessionStateBehavior" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

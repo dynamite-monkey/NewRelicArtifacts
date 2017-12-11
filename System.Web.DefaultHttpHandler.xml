@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.DefaultHttpHandler in this file
+  -->
+
+    <!-- DefaultHttpHandler -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="DefaultHttpHandler">
+      <match assemblyName="System.Web" className="System.Web.DefaultHttpHandler">
+        <exactMethodMatcher methodName="BeginProcessRequest" />
+        <exactMethodMatcher methodName="EndProcessRequest" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="OnExecuteUrlPreconditionFailure" />
+        <exactMethodMatcher methodName="OverrideExecuteUrlPath" />
+        <exactMethodMatcher methodName="ProcessRequest" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

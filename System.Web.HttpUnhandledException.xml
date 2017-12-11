@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpUnhandledException in this file
+  -->
+
+    <!-- HttpUnhandledException -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpUnhandledException">
+      <match assemblyName="System.Web" className="System.Web.HttpUnhandledException">
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetBaseException" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetHtmlErrorMessage" />
+        <exactMethodMatcher methodName="GetHttpCode" />
+        <exactMethodMatcher methodName="GetObjectData" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

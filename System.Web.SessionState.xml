@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly, System.Web.SessionState Namespace.
+    
+    Please do not include classes below System.Web.SessionState in this file
+  -->
+
+    <!-- HttpSessionState -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpSessionState">
+      <match assemblyName="System.Web" className="System.Web.SessionState.HttpSessionState">
+        <exactMethodMatcher methodName="Abandon" />
+        <exactMethodMatcher methodName="Add" />
+        <exactMethodMatcher methodName="Clear" />
+        <exactMethodMatcher methodName="CopyTo" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetEnumerator" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="Remove" />
+        <exactMethodMatcher methodName="RemoveAll" />
+        <exactMethodMatcher methodName="RemoveAt" />
+        <exactMethodMatcher methodName="ToString" />
+
+        <!-- Overloaded Methods -->
+        <exactMethodMatcher methodName="AsParallel" />
+        <exactMethodMatcher methodName="AsQueryable" />
+        <exactMethodMatcher methodName="Cast" />
+        <exactMethodMatcher methodName="OfType" />
+      </match>
+    </tracerFactory>
+
+    <!-- HttpSessionStateContainer -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpSessionStateContainer">
+      <match assemblyName="System.Web" className="System.Web.SessionState.HttpSessionStateContainer">
+        <exactMethodMatcher methodName="Abandon" />
+        <exactMethodMatcher methodName="Add" />
+        <exactMethodMatcher methodName="Clear" />
+        <exactMethodMatcher methodName="CopyTo" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetEnumerator" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="Remove" />
+        <exactMethodMatcher methodName="RemoveAll" />
+        <exactMethodMatcher methodName="RemoveAt" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+    <!-- SessionIDManager -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="SessionIDManager">
+      <match assemblyName="System.Web" className="System.Web.SessionState.SessionIDManager">
+        <exactMethodMatcher methodName="CreateSessionID" />
+        <exactMethodMatcher methodName="Decode" />
+        <exactMethodMatcher methodName="Encode" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetSessionID" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="Initialize" />
+        <exactMethodMatcher methodName="InitializeRequest" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="RemoveSessionID" />
+        <exactMethodMatcher methodName="SaveSessionID" />
+        <exactMethodMatcher methodName="ToString" />
+        <exactMethodMatcher methodName="Validate" />
+      </match>
+    </tracerFactory>
+
+    <!-- SessionStateItemCollection -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="SessionStateItemCollection">
+      <match assemblyName="System.Web" className="System.Web.SessionState.SessionStateItemCollection">
+        <exactMethodMatcher methodName="Clear" />
+        <exactMethodMatcher methodName="Deserialize" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetEnumerator" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetObjectData" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="OnDeserialization" />
+        <exactMethodMatcher methodName="Remove" />
+        <exactMethodMatcher methodName="RemoveAt" />
+        <exactMethodMatcher methodName="Serialize" />
+        <exactMethodMatcher methodName="ToString" />
+
+        <!-- Overloaded Methods -->
+        <exactMethodMatcher methodName="AsParallel" />
+        <exactMethodMatcher methodName="AsQueryable" />
+        <exactMethodMatcher methodName="Cast" />
+        <exactMethodMatcher methodName="OfType" />
+      </match>
+    </tracerFactory>
+
+    <!-- SessionStateModule -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="SessionStateModule">
+      <match assemblyName="System.Web" className="System.Web.SessionState.SessionStateModule">
+        <exactMethodMatcher methodName="Dispose" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="Init" />
+        <exactMethodMatcher methodName="ReleaseSessionState" />
+        <exactMethodMatcher methodName="ReleaseSessionStateAsync" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+    <!-- SessionStateStoreData -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="SessionStateStoreData">
+      <match assemblyName="System.Web" className="System.Web.SessionState.SessionStateStoreData">
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+    <!-- SessionStateStoreProviderBase -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="SessionStateStoreProviderBase">
+      <match assemblyName="System.Web" className="System.Web.SessionState.SessionStateStoreProviderBase">
+        <exactMethodMatcher methodName="CreateNewStoreData" />
+        <exactMethodMatcher methodName="CreateUninitializedItem" />
+        <exactMethodMatcher methodName="Dispose" />
+        <exactMethodMatcher methodName="EndRequest" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="Finalize" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetItem" />
+        <exactMethodMatcher methodName="GetItemExclusive" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="Initialize" />
+        <exactMethodMatcher methodName="InitializeRequest" />
+        <exactMethodMatcher methodName="MemberwiseClone" />
+        <exactMethodMatcher methodName="ReleaseItemExclusive" />
+        <exactMethodMatcher methodName="RemoveItem" />
+        <exactMethodMatcher methodName="ResetItemTimeout" />
+        <exactMethodMatcher methodName="SetAndReleaseItemExclusive" />
+        <exactMethodMatcher methodName="SetItemExpireCallback" />
+        <exactMethodMatcher methodName="ToString" />
+      </match>
+    </tracerFactory>
+
+    <!-- SessionStateUtility -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="SessionStateUtility">
+      <match assemblyName="System.Web" className="System.Web.SessionState.SessionStateUtility">
+        <exactMethodMatcher methodName="AddHttpSessionStateToContext" />
+        <exactMethodMatcher methodName="GetHttpSessionStateFromContext" />
+        <exactMethodMatcher methodName="GetSessionStaticObjects" />
+        <exactMethodMatcher methodName="IsSessionStateReadOnly" />
+        <exactMethodMatcher methodName="IsSessionStateRequired" />
+        <exactMethodMatcher methodName="RaiseSessionEnd" />
+        <exactMethodMatcher methodName="RemoveHttpSessionStateFromContext" />
+      </match>
+    </tracerFactory>
+
+    <!-- StateRuntime -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="StateRuntime">
+      <match assemblyName="System.Web" className="System.Web.SessionState.StateRuntime">
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="ProcessRequest" />
+        <exactMethodMatcher methodName="StopProcessing" />
+        <exactMethodMatcher methodName="ToString" />
+     </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+  <!--
+    This set of tracerFactories is for the System.Web assembly.
+  
+    Please do not include classes below System.Web.HttpRequest in this file
+  -->
+
+    <!-- HttpRequest -->
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="HttpRequest">
+      <match assemblyName="System.Web" className="System.Web.HttpRequest">
+        <exactMethodMatcher methodName="Abort" />
+        <exactMethodMatcher methodName="BinaryRead" />
+        <exactMethodMatcher methodName="Equals" />
+        <exactMethodMatcher methodName="GetBufferedInputStream" />
+        <exactMethodMatcher methodName="GetBufferlessInputStream" />
+        <exactMethodMatcher methodName="GetHashCode" />
+        <exactMethodMatcher methodName="GetType" />
+        <exactMethodMatcher methodName="InsertEntityBody" />
+        <exactMethodMatcher methodName="MapImageCoordinates" />
+        <exactMethodMatcher methodName="MapPath" />
+        <exactMethodMatcher methodName="MapRawImageCoordinates" />
+        <exactMethodMatcher methodName="SaveAs" />
+        <exactMethodMatcher methodName="ToString" />
+        <exactMethodMatcher methodName="ValidateInput" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>
